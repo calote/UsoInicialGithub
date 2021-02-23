@@ -1,0 +1,109 @@
+---
+title: "Proyecto con control de versiones"
+author: "Pedro L. Luque"
+date: "23 de febrero de 2021"
+output:
+  pdf_document:
+    toc: yes
+  html_document:
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Informe básico con R Markdown
+
+En este documento R Markdown se va a demostrar de forma muy básica como crear un informe (HTML, PDF y MS Word) con ayuda del lenguaje de marcas "markdown" y la posibilidad de insertar código R (también es posible insertar código de otros lenguajes). 
+
+Para más detalles sobre el uso de R Markdown se recomienda visitar la página  <http://rmarkdown.rstudio.com>.
+
+Cuando se pulsa el botón **Knit** al trabajar sobre un documento R Markdown (con extensión **"Rmd"**) se generará un informe que incluye tanto el contenido escrito como la salida de cualquier código R incluido convenientemente dentro del documento.
+
+
+# Incluir código R
+
+A continuación se incluyen varios ejemplos de código R que pueden insertarse en un documento R Markdown.
+
+## Ejemplo 1: estudio de cars
+
+```{r}
+head(cars)
+```
+- Para calcular la media de las variables: `speed` y `dist` del dataset "cars":
+```{r}
+mean(cars$speed)
+mean(cars$dist)
+```
+
+- Para calcular las medianas:
+```{r}
+median(cars$speed)
+median(cars$dist)
+```
+
+- Se pueden obtener las medias sin mostrar el código utilizado:
+
+    + Media de `speed`:
+        ```{r echo=FALSE}
+        mean(cars$speed)
+        ```
+
+    + Media de `dist`:
+        ```{r echo=FALSE}
+        mean(cars$dist)
+        ```
+
+- Se puede obtener un resumen del dataset "cars":
+```{r cars}
+summary(cars)
+```
+
+## Ejemplo 2: inclusión de resultados en un párrafo
+
+En el dataset "cars" (contiene `r nrow(cars)` observaciones), el valor de la media de `speed` es igual a: `r mean(cars$speed)`, y la media de `dist` es igual a: `r mean(cars$dist)`.
+
+Si se crea otro dataset: `cars2` (únicamente contiene las 20 primeras observaciones del dataset "cars"):
+
+```{r}
+cars2 = cars[1:20,]
+```
+
+En el dataset "cars2" (contiene `r nrow(cars2)` observaciones), el valor de la media de `speed` es igual a: `r mean(cars2$speed)`, y la media de `dist` es igual a: `r mean(cars2$dist)`.
+
+
+# Incluir código R que produce gráficos
+
+Cualquier función R que devuelva un gráfico puede incluirse también en un documento R Markdown, y este será insertado en el informe.
+
+
+## Ejemplo 1
+
+En este primer ejemplo se crea un diagrama de dispersión o nube de puntos de los valores de las variables (`speed`, `dist`) del dataset "cars", y vemos tanto el código R que lo ha producido como el gráfico resultante:
+
+```{r}
+plot(cars)
+```
+
+## Ejemplo 2
+
+En este otro ejemplo, puede mostrarse el mismo resultado pero sin mostrar el código R:
+```{r echo=FALSE}
+plot(cars)
+```
+Para conseguir que no se muestre el código R se ha utilizado como argumento del "chunk" o trozo de código R: `echo = FALSE`, de esta manera solamente se muestra el resultado que en este caso es un gráfico.
+
+## Ejemplo 3
+
+El código R puede incluir también el uso de otras librerías. En este ejemplo, se muestra el uso de la librería **"ggplot2"** para crear un diagrama de dispersión.
+
+```{r}
+library(ggplot2)
+ggplot(cars, aes(x = speed, y = dist)) +
+  geom_point(color = "blue") +
+  labs(
+    title = "Diagrama de dispersión"
+  )
+```
+
