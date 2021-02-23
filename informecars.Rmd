@@ -21,6 +21,7 @@ Para más detalles sobre el uso de R Markdown se recomienda visitar la página  
 
 Cuando se pulsa el botón **Knit** al trabajar sobre un documento R Markdown (con extensión **"Rmd"**) se generará un informe que incluye tanto el contenido escrito como la salida de cualquier código R incluido convenientemente dentro del documento.
 
+También se pueden incluir características más avanzadas en un documento R Markdown, como por ejemplo la creación de una tabla de contenido.
 
 # Incluir código R
 
