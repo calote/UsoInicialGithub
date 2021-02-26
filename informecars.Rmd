@@ -104,7 +104,8 @@ library(ggplot2)
 ggplot(cars, aes(x = speed, y = dist)) +
   geom_point(color = "blue") +
   labs(
-    title = "Diagrama de dispersión"
+    title = "Diagrama de dispersión",
+    subtitle = "Creado con ggplot2"
   )
 ```
 
