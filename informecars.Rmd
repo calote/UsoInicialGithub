@@ -90,7 +90,7 @@ plot(cars)
 ## Ejemplo 2
 
 En este otro ejemplo, puede mostrarse el mismo resultado pero sin mostrar el código R:
-```{r echo=FALSE}
+```{r echo=FALSE,fig.align='center'}
 plot(cars)
 ```
 Para conseguir que no se muestre el código R se ha utilizado como argumento del "chunk" o trozo de código R: `echo = FALSE`, de esta manera solamente se muestra el resultado que en este caso es un gráfico.
